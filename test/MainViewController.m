@@ -108,6 +108,11 @@
     return 10;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 100;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString * cellStr = @"cellStr";
@@ -115,8 +120,10 @@
     UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellStr];
     
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellStr];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellStr];
     }
+    
+    cell.textLabel.text = @"tap this cell, slide on appeared view";
     
     return cell;
 }
